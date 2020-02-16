@@ -1,4 +1,4 @@
-let amenities = {};
+const amenities = {};
 $(function () {
   $('input[type=checkbox]').prop('checked', false);
 
@@ -7,8 +7,8 @@ $(function () {
       amenities[this.attributes['data-id'].value] = this.attributes['data-name'].value;
     } else {
       delete amenities[this.attributes['data-id'].value];
-    };
-    if (!(jQuery.isEmptyObject(amenities))) {
+    }
+    if (!($.isEmptyObject(amenities))) {
       $('div.amenities h4').text(Object.values(amenities).join(', '));
     } else {
       $('div.amenities h4').text('\xa0');
