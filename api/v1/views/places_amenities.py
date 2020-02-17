@@ -63,6 +63,7 @@ def amenity_to_place(place_id=None, amenity_id=None):
             return jsonify(amenity_obj.to_json()), 200
         if STORAGE_TYPE == 'db':
             place_obj.amenities.append(amenity_obj)
+            place_obj.save()
         else:
             place_obj.amenities = amenity_obj
         return jsonify(amenity_obj.to_json()), 201
